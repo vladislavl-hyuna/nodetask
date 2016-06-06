@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    h1 Task list
+    a.btn.btn-primary(href='/task-list/add', role='button') Add new
+    table.table.table-striped
+        thead
+            tr
+                th ID
+                th Task
+                th Details
+                th Action
+        tbody
+            each task in tasks
+                tr
+                    td= task.id
+                    td= task.task
+                    td= task.details
+                    td(style="width: 50px;")
+                        a.btn.btn-danger(href="/task-list/delete/#{task.id}", style="padding: 6px 10px")
+                            span.glyphicon.glyphicon-remove

@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h1 Add new task
+    form(method="post")
+        .form-group
+            label(for='taskTitle') Task title
+            input#taskTitle.form-control(name='task', type='text', placeholder='Task title')
+        .form-group
+            label(for='taskDetails') Task description
+            textarea#taskDetails.form-control(name='details', rows='3')
+        button.btn.btn-primary(type="submit") Add new task
+        a.btn.btn-danger(href="/task-list") Cancel
