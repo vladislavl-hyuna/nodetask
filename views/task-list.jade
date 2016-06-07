@@ -6,16 +6,18 @@ block content
     table.table.table-striped
         thead
             tr
-                th ID
+                th Action
                 th Task
                 th Details
-                th Action
         tbody
             each task in tasks
                 tr
-                    td= task.id
+                    td(style="width: 150px;")
+                        a(href="/task-list/delete/#{task.id}", style="padding: 6px 10px")
+                            span.glyphicon.glyphicon-ok
+                        a(href="/task-list/edit/#{task.id}", style="padding: 6px 10px")
+                            span.glyphicon.glyphicon-pencil
+                        a(href="/task-list/delete/#{task.id}", style="padding: 6px 10px")
+                            span.glyphicon.glyphicon-remove
                     td= task.task
                     td= task.details
-                    td(style="width: 50px;")
-                        a.btn.btn-danger(href="/task-list/delete/#{task.id}", style="padding: 6px 10px")
-                            span.glyphicon.glyphicon-remove
