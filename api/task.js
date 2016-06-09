@@ -35,7 +35,7 @@ router.route('/api/task-list/task/:id')
             console.log(result[0]);
         });
     })
-    .put(function(req, res){
+    .patch(function(req, res){
         tasks.change(req.params.id, {
             task: req.body.task,
             details: req.body.details
