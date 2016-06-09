@@ -1,7 +1,5 @@
 var express = require("express");
-var _ = require("lodash");
 
-//var tasks = require("./data/tasks.json");
 var tasks = require("./models/task.js");
 
 var router = express.Router();
@@ -31,6 +29,7 @@ router.route('/task-list/add')
         }, function(err) {
             if (err) {
                 console.log(err);
+                return;
             }
             res.redirect('/task-list');
         });
@@ -75,5 +74,18 @@ router.route('/task-list/edit/:id')
                 console.log(err);
             }
             res.redirect('/task-list');
+        });
+    });
+
+router.route('/task-list/view/:id')
+    .get(function(req, res){
+        tasks.view(req.params.id, function(err, result) {
+            if (err) {
+                console.log(err);
+            }
+            res.render("view", {
+                task: result[0]
+            });
+            console.log(result);
         });
     });

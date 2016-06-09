@@ -15,8 +15,11 @@ app.get('/', function(req, res){
     });
 });
 
-var taskListRouter = require("./task-list");
+var taskListRouter = require("./task");
 app.use(taskListRouter);
+
+var taskListApiRouter = require("./api/task");
+app.use(taskListApiRouter);
 
 app.listen(3000, function() {
     console.log('Example app listening on port 3000!');

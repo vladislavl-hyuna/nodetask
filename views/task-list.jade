@@ -12,16 +12,16 @@ block content
         tbody
             each task in tasks
                 tr
-                    td(style="width: 100px;")
+                    td(style="width: 150px;text-align: center")
                         case task.is_complete
                             when 1
                                 a(href="/task-list/delete/#{task.id}", style="padding: 6px 10px")
                                     span.glyphicon.glyphicon-remove
-                                a(href="/task-list/edit/#{task.id}", style="padding: 6px 10px")
-                                    span.glyphicon.glyphicon-pencil
                             default
                                 a(href="/task-list/complete/#{task.id}", style="padding: 6px 10px")
                                     span.glyphicon.glyphicon-ok
+                                a(href="/task-list/view/#{task.id}", style="padding: 6px 10px")
+                                    span.glyphicon.glyphicon-eye-open
                                 a(href="/task-list/edit/#{task.id}", style="padding: 6px 10px")
                                     span.glyphicon.glyphicon-pencil
                     td= task.task

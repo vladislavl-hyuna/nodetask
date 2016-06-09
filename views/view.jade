@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    h1 Task details
+    h2= task.task
+    div= task.details
+    br
+    a.btn.btn-success(href="/task-list/complete/#{task.id}", style="padding: 6px 10px; margin-right: 15px")
+        span.glyphicon.glyphicon-ok
+    a.btn.btn-primary(href='/task-list/edit/#{task.id}', role='button') Edit task
